@@ -20,67 +20,43 @@ import {
 import Link from "next/link"
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="flex flex-row">
-      <Label className="text-6xl m-5">OBDGarage PWA</Label>
-      <NavigationMenu>
-        <NavigationMenuList>
+    <div className=" min-h-screen bg-background text-foreground">
+      <div className="mx-auto grid h-14 w-full max-w-6xl grid-cols-3 items-center px-4">
+      <Label className="text-xl animate-in fade-in slide-in-from-bottom-2 justify-self-start font-semibold text-primary"><Link href="/">Telemetryx</Link></Label>
+      <NavigationMenu className="animate-in fade-in slide-in-from-bottom-2 justify-self-center">
+        <NavigationMenuList >
           <NavigationMenuItem>
             <NavigationMenuLink className={navigationMenuTriggerStyle()} render={<Link href="/">Strona główna</Link>} />
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()} render={<Link href="/garage">Garaż</Link>} />
+            <NavigationMenuLink className={navigationMenuTriggerStyle()} render={<Link href="/login">Garaż</Link>} />
           </NavigationMenuItem>
           <NavigationMenuItem>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()} render={<Link href="#funkcje">Funkcje</Link>} />
+          </NavigationMenuItem>
+          
+        </NavigationMenuList>
+      </NavigationMenu>
+      <NavigationMenu className="animate-in fade-in slide-in-from-bottom-2 justify-self-end">
+      <NavigationMenuList>
+      <NavigationMenuItem>
             <NavigationMenuLink className={navigationMenuTriggerStyle()} render={<Link href="/login">Zaloguj się</Link>} />
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
       </div>
-      <div className="flex flex-row">
-        <Card className="relative mx-auto w-full max-w-sm pt-0">
-      <div className="absolute inset-0 z-30 aspect-video bg-black/35" />
-      <Image
-        src="/images/zaslepka-auto.jpg"
-        alt="Event cover"
-        width="1920"
-        height="1080"
-        loading="eager"
-        className="relative z-20 aspect-video w-full object-cover brightness-80"
-      />
-      <CardHeader>
-        <CardTitle>Marka Model</CardTitle>
-        <CardDescription>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        </CardDescription>
-      </CardHeader>
-      <CardFooter>
-        <Button className="w-full">Przejdź do auta</Button>
-      </CardFooter>
-    </Card>
-    <Card className="relative mx-auto w-full max-w-sm pt-0">
-      <div className="absolute inset-0 z-30 aspect-video bg-black/35" />
-      <Image
-        src="/images/zaslepka-auto.jpg"
-        alt="Event cover"
-        width="1920"
-        height="1080"
-        loading="eager"
-        className="relative z-20 aspect-video w-full object-cover brightness-80"
-      />
-      <CardHeader>
-        <CardTitle>Marka Model</CardTitle>
-        <CardDescription>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        </CardDescription>
-      </CardHeader>
-      <CardFooter>
-        <Button className="w-full">Przejdź do auta</Button>
-      </CardFooter>
-    </Card>
+      <div className="relative flex flex-1 flex-col items-center justify-center text-center overflow-hidden px-4 mt-10 animate-in fade-in slide-in-from-bottom-2">
+        <Button className="text-pretty font-bold py-4">TELEMETRYX</Button>
+        <Label className="text-4xl text-primary font-semibold mt-5">Twoje auto w liczbach.</Label>
+        <Label className="text-4xl font-semibold">Telemetria, której możesz zaufać.</Label>
+        <Label className="mt-5 text-base text-pretty">Precyzyjna analiza korekt paliwowych, obciążeń <br/> i wypadania zapłonów na przejrzystych wykresach.</Label>
+        <div className="space-x-5 mt-10">
+        <Link href="/register"><Button className="text-xl p-5 font-semibold">Załóż konto</Button></Link>
+        <Link href="/login"><Button className="text-xl p-5 font-semibold">Zaloguj się</Button></Link>
+        </div>
+       
       </div>
       
-      <Button className="ml-5">Przycisk</Button>
     </div>
     
   );

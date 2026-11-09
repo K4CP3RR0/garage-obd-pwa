@@ -14,9 +14,9 @@ import {
 export default function LoginPage() {
   return (
     <Card className="w-full max-w-sm">
-      <CardHeader>
-        <CardTitle>Logowanie</CardTitle>
-        <CardDescription>Zaloguj się do OBDGarage PWA</CardDescription>
+      <CardHeader className="justify-center">
+        <CardTitle className="text-center">Logowanie</CardTitle>
+        <CardDescription className="text-center">Zaloguj się do OBDGarage PWA</CardDescription>
       </CardHeader>
 
       <CardContent className="space-y-4">
@@ -31,6 +31,10 @@ export default function LoginPage() {
         <Button className="w-full" type="button">
           Zaloguj się
         </Button>
+        <Label className="justify-center">Nie masz konta?</Label>
+        <Link href="/register"><Button className="w-full" type="button">
+          Zarejestruj się
+        </Button></Link>
       </CardContent>
 
       <CardFooter className="justify-center">
