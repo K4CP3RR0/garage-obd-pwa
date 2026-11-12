@@ -1,0 +1,9 @@
+services:
+  app:
+    image: ghcr.io/k4cp3rr0/telemetryx:latest
+    container_name: telemetryx
+    restart: unless-stopped
+    ports:
+      - "5555:5555"
+    env_file:
+      - .env
