@@ -18,9 +18,11 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import Link from "next/link"
+import { SiteFooter } from "@/components/site-footer"
+
 export default function Home() {
   return (
-    <div className=" min-h-screen bg-background text-foreground">
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
       <div className="mx-auto grid h-14 w-full max-w-6xl grid-cols-3 items-center px-4">
       <Label className="text-xl animate-in fade-in slide-in-from-bottom-2 justify-self-start font-semibold text-primary"><Link href="/">Telemetryx</Link></Label>
       <NavigationMenu className="animate-in fade-in slide-in-from-bottom-2 justify-self-center">
@@ -56,8 +58,8 @@ export default function Home() {
         </div>
        
       </div>
-      
+
+      <SiteFooter />
     </div>
-    
   );
 }

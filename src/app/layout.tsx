@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OBD PWA",
-  description: "OBD PWA Next.js App",
+  title: "Telemetryx",
+  description: "Telemetryx PWA Web App",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
