@@ -13,6 +13,10 @@ ENV NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 
+ENV DATABASE_URL=postgresql://build:build@127.0.0.1:5432/build
+ENV BETTER_AUTH_SECRET=build-time-placeholder-secret-min-32-chars
+ENV BETTER_AUTH_URL=$NEXT_PUBLIC_APP_URL
+
 RUN npm run build
 
 FROM node:22-alpine AS runner
