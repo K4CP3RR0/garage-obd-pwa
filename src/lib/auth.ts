@@ -3,6 +3,15 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "@/db";
 import * as schema from "@/db/schema";
 
+const baseURL = process.env.BETTER_AUTH_URL;
+
+const trustedOrigins = [
+  baseURL,
+  process.env.NEXT_PUBLIC_APP_URL,
+  ...(process.env.BETTER_AUTH_TRUSTED_ORIGINS?.split(",").map((s) => s.trim()) ??
+    []),
+].filter((v): v is string => Boolean(v));
+
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: "pg",
@@ -29,12 +38,13 @@ export const auth = betterAuth({
     enabled: true,
   },
   advanced: {
-  database: {
-    generateId: "uuid",
+    database: {
+      generateId: "uuid",
     },
   },
   secret: process.env.BETTER_AUTH_SECRET,
-  baseURL: process.env.BETTER_AUTH_URL,
+  baseURL,
+  trustedOrigins,
 });
 
 export type Session = typeof auth.$Infer.Session;

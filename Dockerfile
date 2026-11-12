@@ -13,7 +13,7 @@ ENV NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 
-# Tylko builder — nie trafiają do finalnego obrazu (runtime: /opt/telemetryx/.env)
+
 ARG DATABASE_URL=postgresql://build:build@127.0.0.1:5432/build
 ARG BETTER_AUTH_SECRET=build-time-placeholder-not-used-at-runtime
 ARG BETTER_AUTH_URL=http://localhost:5555
