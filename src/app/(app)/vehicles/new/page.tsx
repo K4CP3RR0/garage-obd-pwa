@@ -1,3 +1,4 @@
+import { connection } from "next/server";
 import { asc } from "drizzle-orm";
 import { db } from "@/db";
 import { fuelTypes, vehicleBrands, vehicleModels } from "@/db/schema";
@@ -6,6 +7,9 @@ import { NewVehicleForm } from "@/components/vehicles/new-vehicle-form";
 export const instant = false;
 
 export default async function NewVehiclePage() {
+  // Bez tego Next próbuje prerender + DB w Docker build (ECONNREFUSED 127.0.0.1)
+  await connection();
+
   const [brands, models, fuels] = await Promise.all([
     db
       .select({ id: vehicleBrands.id, name: vehicleBrands.name })
