@@ -1,18 +1,39 @@
-import Link from "next/link";
+import { asc } from "drizzle-orm";
+import { db } from "@/db";
+import { fuelTypes, vehicleBrands, vehicleModels } from "@/db/schema";
+import { NewVehicleForm } from "@/components/vehicles/new-vehicle-form";
 
-export default function NewVehiclePage() {
+export const instant = false;
+
+export default async function NewVehiclePage() {
+  const [brands, models, fuels] = await Promise.all([
+    db
+      .select({ id: vehicleBrands.id, name: vehicleBrands.name })
+      .from(vehicleBrands)
+      .orderBy(asc(vehicleBrands.name)),
+    db
+      .select({
+        id: vehicleModels.id,
+        brandId: vehicleModels.brandId,
+        name: vehicleModels.name,
+      })
+      .from(vehicleModels)
+      .orderBy(asc(vehicleModels.name)),
+    db
+      .select({ id: fuelTypes.id, namePl: fuelTypes.namePl })
+      .from(fuelTypes)
+      .orderBy(asc(fuelTypes.id)),
+  ]);
+
   return (
-    <div>
-      <h1 className="text-2xl font-semibold">Dodaj pojazd</h1>
-      <p className="mt-2 text-muted-foreground">
-        Formularz ewidencji (marka, model, paliwo, VIN…) — później z Drizzle.
-      </p>
-      <Link
-        href="/garage"
-        className="mt-4 inline-block text-sm text-muted-foreground underline-offset-4 hover:underline"
-      >
-        ← Wróć do garażu
-      </Link>
+    <div className="space-y-4">
+      <div className="text-center sm:text-left">
+        <h1 className="text-2xl font-semibold tracking-tight">Nowy pojazd</h1>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Wymagane: marka, model, rok, paliwo i przebieg. Reszta opcjonalna.
+        </p>
+      </div>
+      <NewVehicleForm brands={brands} models={models} fuels={fuels} />
     </div>
   );
 }

@@ -140,6 +140,8 @@ export const vehicles = pgTable("vehicles", {
   engineCode: varchar("engine_code", { length: 30 }),
   engineDisplacementCm3: integer("engine_displacement_cm3"),
   baseOdometerKm: integer("base_odometer_km").notNull().default(0),
+  /** URL / ścieżka zdjęcia (np. /images/civic.jpg) — jak users.image */
+  image: text("image"),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
 });

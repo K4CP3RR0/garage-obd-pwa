@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#E8EEF7"/>
+  <rect x="0" y="280" width="800" height="170" fill="#D5DEEA"/>
+  <path d="M140 300h80l40-70h280l50 70h70v70H140v-70z" fill="#94A3B8"/>
+  <circle cx="240" cy="370" r="36" fill="#64748B"/>
+  <circle cx="560" cy="370" r="36" fill="#64748B"/>
+  <circle cx="240" cy="370" r="16" fill="#CBD5E1"/>
+  <circle cx="560" cy="370" r="16" fill="#CBD5E1"/>
+  <path d="M270 230h220l30 50H240l30-50z" fill="#B8C4D4"/>
+  <text x="400" y="60" text-anchor="middle" fill="#64748B" font-family="system-ui,sans-serif" font-size="28" font-weight="600">Telemetryx</text>
+  <text x="400" y="95" text-anchor="middle" fill="#94A3B8" font-family="system-ui,sans-serif" font-size="16">Brak zdjęcia pojazdu</text>
+</svg>

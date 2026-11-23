@@ -24,6 +24,10 @@
 .DS_Store
 *.pem
 
+# uploaded vehicle photos (keep folder via .gitkeep)
+/public/uploads/vehicles/*
+!/public/uploads/vehicles/.gitkeep
+
 # debug
 npm-debug.log*
 yarn-debug.log*

@@ -100,6 +100,7 @@ CREATE TABLE vehicles (
   engine_code                varchar(30),
   engine_displacement_cm3    int,
   base_odometer_km           int NOT NULL DEFAULT 0,
+  image                      text,
   created_at                 timestamptz NOT NULL DEFAULT now(),
   updated_at                 timestamptz NOT NULL DEFAULT now(),
   CONSTRAINT vehicles_vin_uq UNIQUE (vin)
